@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root{
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  height: auto;
+  color: white;
+  z-index: 1000;
+}
+
+header.scrolled {
+  background-color: #333; /* Nuevo color cuando se hace scroll */
+  color: #fff; /* Cambiar el color del texto si es necesario */
+}
+
+.restaurant-title {
+  font-family: 'Inter';
+  cursor: pointer;
+}
+
+.nav-list {
+  display: flex;
+  list-style-type: none;
+  gap: 2rem;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  transition: 160ms;
+}
+
+.nav-list li a:hover {
+  color: #ff7f00;
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding-bottom: 3rem;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('img/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  gap: 20px;
+}
+
+.headline-title {
+  color: white;
+  font-size: 3rem;
+}
+
+.subheadline-paragraph {
+  color: white;
+  font-size: 20px;
+}
+
+.cta-btn {
+  background-color: #ff7f00; /* naranja vivo */
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #e67300;
+}
+
+.features-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+}
+
+.feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 300px;
+  text-align: center;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature-card p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.location-section {
+  padding: 2rem 1rem;
+  background-color: #f0f0f0;
+}
+
+.location-content-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem; /* Reducido el espacio entre las columnas */
+}
+
+.location-text {
+  flex: 1;
+  max-width: 300px; /* Reducido el max-width */
+}
+
+.location-text h2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 0.6rem; /* Menor margen entre el título y el texto */
+}
+
+.location-text p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0.4rem; /* Menor espacio entre las líneas de texto */
+}
+
+.location-map {
+  flex: 1;
+  max-width: 300px; /* Reducido el max-width */
+}
+
+.location-map iframe {
+  width: 100%;
+  height: 250px; /* Reducido el tamaño del mapa */
+  border-radius: 1rem;
+}
