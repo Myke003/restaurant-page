@@ -4,34 +4,32 @@
   box-sizing: border-box;
 }
 
-#root{
+#root {
   display: flex;
   flex-direction: column;
   font-family: 'Roboto', sans-serif;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 header {
   display: flex;
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 1.5rem 2rem;
   height: auto;
   color: white;
   z-index: 1000;
-}
-
-header.scrolled {
-  background-color: #333; /* Nuevo color cuando se hace scroll */
-  color: #fff; /* Cambiar el color del texto si es necesario */
+  background-color: #333; /* Color de fondo siempre presente */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .restaurant-title {
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 
@@ -44,14 +42,25 @@ header.scrolled {
 .nav-list li a {
   text-decoration: none;
   color: white;
-  font-size: 20px;
-  transition: 160ms;
+  font-size: 1.125rem;
+  transition: color 160ms ease;
+  font-weight: 500;
 }
 
 .nav-list li a:hover {
   color: #ff7f00;
 }
 
+.nav-list li a.active {
+  border-bottom: 2px solid #ff7f00;
+}
+
+/* Content container to prevent content from hiding under fixed header */
+main {
+  padding-top: 70px; /* Adjust based on your header height */
+}
+
+/* Hero section styling only for homepage */
 .hero-section {
   display: flex;
   flex-direction: column;
@@ -59,6 +68,7 @@ header.scrolled {
   justify-content: center;
   height: 100vh;
   padding-bottom: 3rem;
+  margin-top: -70px; /* Counteract the main padding to allow hero to go full height */
   background: 
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('img/background.jpg');
@@ -158,4 +168,101 @@ header.scrolled {
   width: 100%;
   height: 250px; /* Reducido el tamaño del mapa */
   border-radius: 1rem;
+}
+
+.menu, .about {
+  padding: 6rem 2rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.menu h2, .about h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-list li {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.menu-list li:last-child {
+  border-bottom: none;
+}
+
+.menu-list h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.menu-list p, .about p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Estilos para páginas internas */
+.page-container {
+  padding: 4rem 2rem 2rem;
+  min-height: calc(100vh - 70px);
+}
+
+/* Estilos responsive */
+@media (max-width: 768px) {
+  .nav-list {
+    gap: 1rem;
+  }
+  
+  .nav-list li a {
+    font-size: 1rem;
+  }
+  
+  .headline-title {
+    font-size: 2.5rem;
+  }
+  
+  .location-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .location-text, .location-map {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  header {
+    padding: 1rem;
+  }
+  
+  .restaurant-title {
+    font-size: 1.25rem;
+  }
+  
+  .nav-list {
+    gap: 0.5rem;
+  }
+  
+  .headline-title {
+    font-size: 2rem;
+  }
+  
+  .subheadline-paragraph {
+    font-size: 1rem;
+  }
+  
+  .cta-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+  }
 }

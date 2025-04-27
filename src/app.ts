@@ -1,13 +1,30 @@
 import Header from './components/header.ts';
-import Home from './components/home.ts';
-import scroll from './components/scroll.ts';
+import router from './components/router.ts';
 
-export default function App(){
+export default function App() {
+  const root = document.getElementById('root');
+  if (!root) return;
 
-  const root: any = document.getElementById('root');
+  root.innerHTML = ''; // Limpias el root una sola vez
 
-  root.appendChild(Header());
-  root.appendChild(Home())
+  const header = Header();
+  const content = document.createElement('div');
+  content.id = 'content';
 
-  scroll()
+  root.appendChild(header);
+  root.appendChild(content);
+
+  router('home');
+
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    if (target.tagName === 'A' && target.closest('.nav-list')) {
+      e.preventDefault();
+      const href = target.getAttribute('href');
+      if (href) {
+        const page = href.replace('#', '');
+        router(page);
+      }
+    }
+  });
 }
